@@ -1,6 +1,18 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="movies">Movies</a></li>
-  <li><a routerLink="shows">Shows</a></li>
-</ul>
+<mat-toolbar color="primary">
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </a>
+      </li>
+      <li><a routerLink="movies" routerLinkActive="active">Movies</a></li>
+      <li><a routerLink="shows" routerLinkActive="active">Shows</a></li>
+    </ul>
+  </nav>
+</mat-toolbar>
 <router-outlet></router-outlet>

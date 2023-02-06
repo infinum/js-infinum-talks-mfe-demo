@@ -1,0 +1,17 @@
+nav ul {
+  display: flex;
+  gap: 16px;
+
+  li {
+    list-style: none;
+
+    a {
+      font-size: 14px;
+      font-weight: normal;
+
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+}

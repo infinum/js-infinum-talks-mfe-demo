@@ -16,7 +16,10 @@
         "tsConfig": "apps/phlex/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/phlex/src/favicon.ico", "apps/phlex/src/assets"],
-        "styles": ["apps/phlex/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "apps/phlex/src/styles.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/phlex/webpack.config.js"
