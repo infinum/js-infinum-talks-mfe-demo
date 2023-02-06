@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '@phlex/auth';
 
 @Component({
   selector: 'phlex-welcome',
@@ -8,4 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss'],
 })
-export default class WelcomeComponent {}
+export default class WelcomeComponent {
+  public readonly user$ = inject(AuthService).user$;
+}

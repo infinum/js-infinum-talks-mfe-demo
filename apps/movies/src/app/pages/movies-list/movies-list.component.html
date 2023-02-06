@@ -1,0 +1,9 @@
+<p *ngIf="user$ | async as user">
+  Hi, {{ user.email }}! Here are some movie recommendations for you
+</p>
+
+<div class="movies-grid">
+  <pmovies-movie-card *ngFor="let movie of movies$ | async" [movie]="movie">
+    <a [routerLink]="movie.id" mat-button color="primary">View Details</a>
+  </pmovies-movie-card>
+</div>

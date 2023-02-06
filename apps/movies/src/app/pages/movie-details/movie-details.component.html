@@ -1,0 +1,6 @@
+<ng-container *ngIf="movie$ | async as movie">
+  <h1>{{ movie.name }}</h1>
+  <img [src]="movie.posterUrl" />
+
+  <p>{{ movie.description }}</p>
+</ng-container>

@@ -32,6 +32,8 @@
     <mat-error *ngIf="form.controls.password.hasError('required')">
       Password is required
     </mat-error>
+
+    <mat-hint>Enter "fail" as password to make the login request fail</mat-hint>
   </mat-form-field>
 
   <button

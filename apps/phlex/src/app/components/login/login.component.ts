@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { AuthService } from '@phlex/auth';
-import { finalize } from 'rxjs';
+import { catchError, finalize, throwError } from 'rxjs';
 
 @Component({
   selector: 'phlex-login',
@@ -38,6 +39,13 @@ export default class LoginComponent {
     this.authService
       .logIn(email, password)
       .pipe(
+        catchError((e) => {
+          if (e instanceof HttpErrorResponse) {
+            alert(e.message);
+          }
+
+          return throwError(() => e);
+        }),
         finalize(() => {
           this.form.enable();
         })

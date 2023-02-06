@@ -1,2 +1,7 @@
 <h1>Welcome to Phlex.app!</h1>
 <h2>Your go-to stop for all things Movies and Shows</h2>
+
+<p *ngIf="user$ | async as user">
+  Hi, {{ user.email }}! This is where you can find all your Movies and Shows.
+  Feel free to navigate to the Movies or Shows page to see what's available.
+</p>
