@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, NxWelcomeComponent],
+  imports: [CommonModule],
   selector: 'pmovies-entry',
-  template: `<pmovies-nx-welcome></pmovies-nx-welcome>`,
+  template: `Movies`,
 })
 export class RemoteEntryComponent {}
