@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+
+    <input
+      matInput
+      type="email"
+      placeholder="Username"
+      formControlName="email"
+      autocomplete="email"
+    />
+
+    <mat-error *ngIf="form.controls.email.hasError('required')">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="form.controls.email.hasError('email')">
+      Please enter a valid email
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+
+    <input
+      matInput
+      type="password"
+      placeholder="Username"
+      formControlName="password"
+      autocomplete="current-password"
+    />
+
+    <mat-error *ngIf="form.controls.password.hasError('required')">
+      Password is required
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    type="submit"
+    mat-flat-button
+    color="primary"
+    [disabled]="form.invalid"
+  >
+    Log in
+  </button>
+</form>

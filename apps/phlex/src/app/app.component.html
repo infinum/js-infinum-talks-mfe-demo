@@ -10,10 +10,21 @@
           Home
         </a>
       </li>
-      <li><a routerLink="movies" routerLinkActive="active">Movies</a></li>
-      <li><a routerLink="shows" routerLinkActive="active">Shows</a></li>
+      <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
+      <li><a routerLink="/shows" routerLinkActive="active">Shows</a></li>
     </ul>
   </nav>
+
+  <ng-container *ngIf="user$ | async as user; else loggedOut">
+    <button mat-button [matMenuTriggerFor]="menu">{{ user.email }}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onLogOutClick()">Log out</button>
+    </mat-menu>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <a routerLink="/login" routerLinkActive="active">Log in</a>
+  </ng-template>
 </mat-toolbar>
 
 <main>

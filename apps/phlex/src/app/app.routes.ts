@@ -16,4 +16,8 @@ export const appRoutes: Route[] = [
     loadChildren: () =>
       loadRemoteModule('movies', './Routes').then((m) => m.remoteRoutes),
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./components/login/login.component'),
+  },
 ];

@@ -1,18 +1,23 @@
-nav ul {
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  font-size: 14px;
+  font-weight: normal;
+
+  &.active {
+    font-weight: bold;
+  }
+}
+
+ul {
   display: flex;
   gap: 16px;
 
   li {
     list-style: none;
-
-    a {
-      font-size: 14px;
-      font-weight: normal;
-
-      &.active {
-        font-weight: bold;
-      }
-    }
   }
 }
 

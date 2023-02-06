@@ -24,4 +24,6 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 ```bash
 nx g @nrwl/angular:host phlex --remotes=movies,shows --dynamic --e2eTestRunner=none --prefix=inf --standalone --dry-run
+
+nx g @nrwl/angular:library auth --tags=core --standalone --skipModule --buildable --publishable --importPath=@phlex/auth
 ```
