@@ -1,0 +1,122 @@
+{
+  "name": "movies",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/movies/src",
+  "prefix": "pmovies",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/movies",
+        "index": "apps/movies/src/index.html",
+        "main": "apps/movies/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/movies/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/movies/src/favicon.ico", "apps/movies/src/assets"],
+        "styles": ["apps/movies/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/movies/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/movies/webpack.prod.config.js"
+          },
+          "fileReplacements": [
+            {
+              "replace": "apps/movies/src/environments/environment.ts",
+              "with": "apps/movies/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "movies:build:production"
+        },
+        "development": {
+          "browserTarget": "movies:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "movies:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/movies/**/*.ts", "apps/movies/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/movies/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "movies:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "movies:build:development"
+        },
+        "production": {
+          "buildTarget": "movies:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,4 @@
+{
+  "movies": "http://localhost:4201",
+  "shows": "http://localhost:4202"
+}

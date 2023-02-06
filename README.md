@@ -19,3 +19,9 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+## MFE-related commands
+
+```bash
+nx g @nrwl/angular:host phlex --remotes=movies,shows --dynamic --e2eTestRunner=none --prefix=inf --standalone --dry-run
+```
