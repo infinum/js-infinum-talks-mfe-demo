@@ -1,12 +1,12 @@
-<mat-card *ngIf="movie">
+<mat-card>
   <mat-card-header>
-    <mat-card-title>{{ movie.name }}</mat-card-title>
+    <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
 
   <img
     mat-card-image
-    [src]="movie.posterUrl"
-    alt="Poster image for movie {{ movie.name }}"
+    [src]="imageUrl"
+    alt="Poster image for movie {{ title }}"
   />
 
   <mat-card-actions>
