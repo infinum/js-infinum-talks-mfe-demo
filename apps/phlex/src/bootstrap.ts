@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -9,8 +9,13 @@ import {
 import { provideLocalStorage } from '@phlex/util';
 import { AppComponent } from './app/app.component';
 import { appRoutes } from './app/app.routes';
+import { environment } from './environments/environment';
 
-import { worker } from './mocks/browser';
+import { worker } from '@phlex/mocks';
+
+if (environment.production) {
+  enableProdMode();
+}
 
 worker.start().then(() => {
   return bootstrapApplication(AppComponent, {

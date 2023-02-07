@@ -18,7 +18,11 @@
         "assets": [
           "apps/phlex/src/favicon.ico",
           "apps/phlex/src/assets",
-          "apps/phlex/src/mockServiceWorker.js"
+          {
+            "glob": "**/*",
+            "input": "libs/mocks/public",
+            "output": "/"
+          }
         ],
         "styles": [
           "@angular/material/prebuilt-themes/deeppurple-amber.css",

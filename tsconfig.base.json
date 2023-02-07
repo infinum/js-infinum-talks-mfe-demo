@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@phlex/auth": ["libs/auth/src/index.ts"],
+      "@phlex/mocks": ["libs/mocks/src/index.ts"],
       "@phlex/tvdb": ["libs/tvdb/src/index.ts"],
       "@phlex/ui": ["libs/ui/src/index.ts"],
       "@phlex/util": ["libs/util/src/index.ts"]

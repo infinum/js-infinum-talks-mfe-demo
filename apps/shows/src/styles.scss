@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'styles/reset';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-size: 42px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform 0.2s ease-in-out;
+
+  &.active {
+    transform: scale(1.2);
+    text-decoration: underline;
+  }
+}

@@ -7,24 +7,26 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/shows",
         "index": "apps/shows/src/index.html",
         "main": "apps/shows/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/shows/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/shows/src/favicon.ico",
-          "apps/shows/src/assets"
+          "apps/shows/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/mocks/public",
+            "output": "/"
+          }
         ],
         "styles": [
-          "apps/shows/src/styles.scss"
+          "apps/shows/src/styles.scss",
+          "@angular/material/prebuilt-themes/deeppurple-amber.css"
         ],
         "scripts": [],
         "customWebpackConfig": {
@@ -91,21 +93,14 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/shows/**/*.ts",
-          "apps/shows/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/shows/**/*.ts", "apps/shows/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/shows/jest.config.ts",
         "passWithNoTests": true
