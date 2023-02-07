@@ -17,7 +17,7 @@ export default class MovieDetailsComponent {
 
   public readonly movie$ = this.route.paramMap.pipe(
     switchMap((paramMap) => {
-      return this.tvdb.fetchOne(paramMap.get('id') ?? '');
+      return this.tvdb.fetchOneMovie(paramMap.get('id') ?? '');
     })
   );
 }

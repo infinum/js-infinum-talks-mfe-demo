@@ -15,5 +15,5 @@ import { CardComponent } from '@phlex/ui';
 })
 export default class MoviesListComponent {
   public readonly user$ = inject(AuthService).user$;
-  public readonly movies$ = inject(TVDBService).fetchAll();
+  public readonly movies$ = inject(TVDBService).fetchAllMovies();
 }
