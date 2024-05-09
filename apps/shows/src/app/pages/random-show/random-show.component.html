@@ -2,7 +2,8 @@
 
 <ng-container *ngIf="show$ | async as show">
   <h1>{{ show.name }}</h1>
-  <img [src]="show.posterUrl" />
 
   <p>{{ show.description }}</p>
+
+  <img [src]="show.posterUrl" />
 </ng-container>
